@@ -1,0 +1,11 @@
+# node modules
+node_modules
+
+# dist folder
+dist
+
+#android folder
+android
+
+#idea folder
+.idea

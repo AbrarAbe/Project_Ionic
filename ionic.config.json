@@ -1,0 +1,7 @@
+{
+  "name": "Marbel One",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

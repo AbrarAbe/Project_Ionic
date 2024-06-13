@@ -1,0 +1,131 @@
+<template>
+  <ion-page>
+    <ion-tabs>
+      <ion-router-outlet />
+      <ion-tab-bar slot="bottom" id="app-tab-bar">
+        <ion-tab-button tab="home" href="/page/home">
+          <ion-icon :icon="menu"></ion-icon>
+          <ion-label>Menu</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="chat" href="/page/chat">
+          <ion-icon :icon="person"></ion-icon>
+          <ion-label>Profile</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="settings" href="/page/settings">
+          <ion-icon :icon="settings"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-tab-button>
+        <ion-tab-button
+          tab="logout"
+          href="/page/logout"
+          @click.prevent="logOut()"
+        >
+          <ion-icon :icon="exit"></ion-icon>
+          <ion-label>Exit</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-page>
+</template>
+
+<script setup>
+import { onMounted } from "vue";
+import {
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonLabel,
+  IonIcon,
+  IonPage,
+  IonRouterOutlet,
+  alertController,
+} from "@ionic/vue";
+import {
+  // settings,person,
+  exit,
+  menu,
+  person,
+  settings,
+} from "ionicons/icons";
+
+import { useRouter } from "vue-router";
+import { AdMob } from "@capacitor-community/admob";
+
+const router = useRouter();
+
+const initializeAdMob = async () => {
+  await AdMob.initialize({
+    appId: "ca-app-pub-5370500978282229~1611991188",
+  });
+};
+
+// Call initializeAdMob when the component is mounted
+onMounted(() => {
+  initializeAdMob();
+});
+
+const logOut = async () => {
+  const alert = await alertController.create({
+    cssClass: "my-custom-class",
+    header: "Confirm!",
+    mode: "ios",
+    message: "Confirm Logout??",
+    buttons: [
+      {
+        text: "Cancel",
+        role: "cancel",
+        cssClass: "secondary",
+        id: "cancel-button",
+        handler: () => {
+          console.log("Confirm Cancel");
+          router.push({ name: "home" });
+        },
+      },
+      {
+        text: "Logout",
+        id: "confirm-button",
+        handler: () => {
+          // Sign out logic...
+
+          // Show reward ad
+          showRewardAd();
+
+          // Clear local storage or perform any other logout actions
+          localStorage.clear();
+        },
+      },
+    ],
+  });
+  alert.present();
+};
+
+const showRewardAd = async () => {
+  try {
+    await AdMob.showRewardAd({
+      adId: "ca-app-pub-5370500978282229/1272283671", // Ganti dengan ID iklan reward yang valid
+    });
+    console.log("Reward Ad shown successfully");
+  } catch (error) {
+    console.error("Error showing Reward Ad:", error);
+  }
+};
+</script>
+
+<style scoped>
+ion-tab-bar {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  --background: #f3f3f3;
+}
+ion-tab-bar ion-tab-button {
+  font-size: 13px;
+  /* --background: #f3f3f3; */
+  --color:white
+  --color-selected: var(--ion-color-primary);
+}
+ion-tab-bar ion-tab-button ion-icon {
+  font-size: 1.5rem;
+}
+</style>
