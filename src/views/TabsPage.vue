@@ -15,11 +15,7 @@
           <ion-icon :icon="settings"></ion-icon>
           <ion-label>Settings</ion-label>
         </ion-tab-button>
-        <ion-tab-button
-          tab="logout"
-          href="/page/logout"
-          @click.prevent="logOut()"
-        >
+        <ion-tab-button tab="logout" href="/page/logout" @click.prevent="logOut()">
           <ion-icon :icon="exit"></ion-icon>
           <ion-label>Exit</ion-label>
         </ion-tab-button>
@@ -40,18 +36,19 @@ import {
   IonRouterOutlet,
   alertController,
 } from "@ionic/vue";
-import {
-  // settings,person,
-  exit,
-  menu,
-  person,
-  settings,
+import { 
+  exit, 
+  menu, 
+  person, 
+  settings, 
 } from "ionicons/icons";
 
 import { useRouter } from "vue-router";
 import { AdMob } from "@capacitor-community/admob";
+import { getAuth, signOut } from "firebase/auth";
 
 const router = useRouter();
+const auth = getAuth();
 
 const initializeAdMob = async () => {
   await AdMob.initialize({
@@ -59,7 +56,6 @@ const initializeAdMob = async () => {
   });
 };
 
-// Call initializeAdMob when the component is mounted
 onMounted(() => {
   initializeAdMob();
 });
@@ -69,7 +65,7 @@ const logOut = async () => {
     cssClass: "my-custom-class",
     header: "Confirm!",
     mode: "ios",
-    message: "Confirm Logout??",
+    message: "Confirm Logout?",
     buttons: [
       {
         text: "Cancel",
@@ -84,14 +80,23 @@ const logOut = async () => {
       {
         text: "Logout",
         id: "confirm-button",
-        handler: () => {
-          // Sign out logic...
+        handler: async () => {
+          try {
+            // Sign out from firebase
+            await signOut(auth);
+            console.log("User signed out");
 
-          // Show reward ad
-          showRewardAd();
+            // Show reward ad
+            await showRewardAd();
 
-          // Clear local storage or perform any other logout actions
-          localStorage.clear();
+            // Clear local storage
+            localStorage.clear();
+
+            // Redirect to login page
+            router.push({ name: "login" });
+          } catch (error) {
+            console.error("Error signing out:", error);
+          }
         },
       },
     ],
@@ -119,12 +124,13 @@ ion-tab-bar {
   height: 60px;
   --background: #f3f3f3;
 }
+
 ion-tab-bar ion-tab-button {
   font-size: 13px;
-  /* --background: #f3f3f3; */
-  --color:white
+  --color: white;
   --color-selected: var(--ion-color-primary);
 }
+
 ion-tab-bar ion-tab-button ion-icon {
   font-size: 1.5rem;
 }

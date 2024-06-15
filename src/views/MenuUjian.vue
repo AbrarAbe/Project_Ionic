@@ -12,7 +12,7 @@
           <ion-toolbar>
             <ion-searchbar
               animated="true"
-              placeholder="Cari Toekang"
+              placeholder="Cari haha"
             ></ion-searchbar>
           </ion-toolbar>
         </ion-header>
@@ -501,7 +501,7 @@ import { AdMob } from "@capacitor-community/admob";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 import { getDatabase, ref as dbRef, get, child } from "firebase/database";
-import { firebaseApp } from "../views/firebase.js";
+import { firebaseApp } from "./firebase.js";
 
 const dasarmatematika = ref([]);
 const selectedResep = ref(null);

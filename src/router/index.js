@@ -1,11 +1,16 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import TabsPage from "../views/TabsPage.vue";
-import Homepage2 from "@/views/HomePage2.vue";
+import MenuUjian from "@/views/MenuUjian.vue";
 
 const routes = [
   {
     path: "/",
     redirect: "/login",
+  },
+  {
+    path: "/regster",
+    name: "register",
+    component: () => import("@/views/RegisterPage.vue"),
   },
   {
     path: "/login",
@@ -21,17 +26,19 @@ const routes = [
     path: "/page/",
     component: TabsPage,
     children: [
+
       {
-        path: "",
-        redirect: "/page/home",
+        path: "/page/menuujian",
+        name: "menuujian",
+        component: () => import("@/views/MenuUjian.vue"),
       },
 
       // home
 
       {
-        path: "/page/home",
-        name: "home",
-        component: () => import("@/views/HomePage2.vue"),
+        path: "/page/menuinputujian",
+        name: "menuinputujian",
+        component: () => import("@/views/MenuInputUjian.vue"),
       },
 
       //profile
@@ -52,9 +59,9 @@ const routes = [
 
       // Tambahkan rute untuk Homepage2
       {
-        path: "/page/home/homepage2",
-        name: "homepage2",
-        component: Homepage2,
+        path: "/page/home/menuujian",
+        name: "menuujian",
+        component: MenuUjian,
       },
     ],
   },
