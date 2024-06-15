@@ -22,9 +22,9 @@ export default {
             const userData = userDoc.data();
             const role = userData.role;
             if (role === 'murid') {
-              router.push('/page/menuujian');
+              router.push('/murid/home');
             } else if (role === 'guru') {
-              router.push('/page/menuinputujian');
+              router.push('/guru/home');
             } else {
               console.error('Role tidak diketahui');
               // jika role tidak diketahui

@@ -3,19 +3,19 @@
     <ion-tabs>
       <ion-router-outlet />
       <ion-tab-bar slot="bottom" id="app-tab-bar">
-        <ion-tab-button tab="home" href="/murid/home/menuujian">
+        <ion-tab-button tab="home" href="/guru/home/menuinputujian">
           <ion-icon :icon="menu"></ion-icon>
           <ion-label>Menu</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="profile" href="/murid/home/profile">
+        <ion-tab-button tab="profile" href="/guru/home/profile">
           <ion-icon :icon="person"></ion-icon>
           <ion-label>Profile</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="settings" href="/murid/home/settings">
+        <ion-tab-button tab="settings" href="/guru/home/settings">
           <ion-icon :icon="settings"></ion-icon>
           <ion-label>Settings</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="logout" href="/murid/home/logout" @click.prevent="logOut()">
+        <ion-tab-button tab="logout" href="/guru/home/logout" @click.prevent="logOut()">
           <ion-icon :icon="exit"></ion-icon>
           <ion-label>Exit</ion-label>
         </ion-tab-button>
@@ -127,7 +127,7 @@ ion-tab-bar {
 
 ion-tab-bar ion-tab-button {
   font-size: 13px;
-  --color: #686d76;
+  --color: white;
   --color-selected: var(--ion-color-primary);
 }
 

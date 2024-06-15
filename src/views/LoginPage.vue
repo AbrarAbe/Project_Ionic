@@ -145,7 +145,7 @@ const Login = async () => {
         const role = userData.role;
         loading.value = false;
         errored.value = false;
-        router.push({ name: role === "murid" ? "homeMurid" : "homeGuru" });
+        router.push({ name: role === "murid" ? "menuujian" : "menuinputujian" });
       } else {
         throw new Error("User role tidak ditemukan");
       }
@@ -153,7 +153,7 @@ const Login = async () => {
       console.log(error);
       loading.value = false;
       errored.value = true;
-      errMsg.value = "IEmail atau password tidak valid";
+      errMsg.value = "Email atau password tidak valid";
     }
   }
 };

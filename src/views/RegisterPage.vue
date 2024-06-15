@@ -151,7 +151,7 @@
         });
         loading.value = false;
         errored.value = false;
-        router.push({ name: role.value === "murid" ? "homeMurid" : "homeGuru" });
+        router.push({ name: role.value === "murid" ? "menuujian" : "menuinputujian" });
       } catch (error) {
         console.log(error);
         loading.value = false;
