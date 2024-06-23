@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import TabsPage from "../views/TabsPage.vue";
 import TabsPage2 from "../views/TabsPage2.vue";
-import MenuUjian from "@/views/MenuUjian.vue";
-import MenuInputUjian from "@/views/MenuInputUjian.vue";
+import HomePageMurid from "@/views/HomePageMurid.vue";
+import HomePageGuru from "@/views/HomePageGuru.vue";
 
 const routes = [
   {
@@ -37,8 +37,8 @@ const routes = [
 
       {
         path: "/murid/home",
-        name: "menuujian",
-        component: () => import("@/views/MenuUjian.vue"),
+        name: "homepagemurid",
+        component: () => import("@/views/HomePageMurid.vue"),
       },
 
       {
@@ -47,19 +47,55 @@ const routes = [
         component: () => import("@/views/ProfilePage.vue"),
       },
 
-      //settings
-      
       {
         path: "/murid/home/settings",
         name: "settingsmurid",
         component: () => import("@/views/SettingsPage.vue"),
       },
 
+      // Menu ujian
+
+      {
+        path: "/murid/home/ujianmatematika",
+        name: "ujianmatematika",
+        component: () => import("@/views/menu/murid/UjianMatematika.vue"),
+      },
+      
+      {
+        path: "/murid/home/ujianbahasa",
+        name: "ujianbahasa",
+        component: () => import("@/views/menu/murid/UjianBahasa.vue"),
+      },
+
+      {
+        path: "/murid/home/ujianfisika",
+        name: "ujianfisika",
+        component: () => import("@/views/menu/murid/UjianFisika.vue"),
+      },
+
+      {
+        path: "/murid/home/ujianbiologi",
+        name: "ujianbiologi",
+        component: () => import("@/views/menu/murid/UjianBiologi.vue"),
+      },
+
+      {
+        path: "/murid/home/ujiankimia",
+        name: "ujiankimia",
+        component: () => import("@/views/menu/murid/UjianKimia.vue"),
+      },
+
+      {
+        path: "/murid/home/ujianinggris",
+        name: "ujianinggris",
+        component: () => import("@/views/menu/murid/UjianInggris.vue"),
+      },
+
       // Tambahkan rute untuk Homepage2
       {
-        path: "/murid/home/menuujian",
-        name: "menuujian",
-        component: MenuUjian,
+        path: "/murid/home/homepagemurid",
+        name: "HomePageMurid",
+        component: HomePageMurid,
       },
     ],
   },
@@ -76,8 +112,8 @@ const routes = [
 
       {
         path: "/guru/home",
-        name: "menuinputujian",
-        component: () => import("@/views/MenuInputUjian.vue"),
+        name: "homepageguru",
+        component: () => import("@/views/HomePageGuru.vue"),
       },
 
       {
@@ -85,9 +121,6 @@ const routes = [
         name: "profileguru",
         component: () => import("@/views/ProfilePage.vue"),
       },
-
-
-      //settings
       
       {
         path: "/guru/home/settings",
@@ -95,12 +128,18 @@ const routes = [
         component: () => import("@/views/SettingsPage.vue"),
       },
 
+      {
+        path: "/murid/home/inputujian",
+        name: "inputujian",
+        component: () => import("@/views/menu/guru/InputUjian.vue"),
+      },
+
       // Tambahkan rute untuk Menu Input Ujian
 
       {
-        path: "/guru/home/menuinputujian",
-        name: "menuinputujian",
-        component: MenuInputUjian,
+        path: "/guru/home/homepageguru",
+        name: "HomePageGuru",
+        component: HomePageGuru,
       },
     ],
   },

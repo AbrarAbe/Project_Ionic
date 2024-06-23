@@ -3,7 +3,7 @@
     <ion-tabs>
       <ion-router-outlet />
       <ion-tab-bar slot="bottom" id="app-tab-bar">
-        <ion-tab-button tab="home" href="/murid/home/menuujian">
+        <ion-tab-button tab="home" href="/murid/home/homepagemurid">
           <ion-icon :icon="menu"></ion-icon>
           <ion-label>Menu</ion-label>
         </ion-tab-button>
@@ -25,7 +25,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import {
   IonTabBar,
   IonTabButton,
@@ -44,21 +43,10 @@ import {
 } from "ionicons/icons";
 
 import { useRouter } from "vue-router";
-import { AdMob } from "@capacitor-community/admob";
 import { getAuth, signOut } from "firebase/auth";
 
 const router = useRouter();
 const auth = getAuth();
-
-const initializeAdMob = async () => {
-  await AdMob.initialize({
-    appId: "ca-app-pub-5370500978282229~1611991188",
-  });
-};
-
-onMounted(() => {
-  initializeAdMob();
-});
 
 const logOut = async () => {
   const alert = await alertController.create({
@@ -74,7 +62,7 @@ const logOut = async () => {
         id: "cancel-button",
         handler: () => {
           console.log("Confirm Cancel");
-          router.push({ name: "home" });
+          router.push({ name: "/murid/home" });
         },
       },
       {
@@ -85,9 +73,6 @@ const logOut = async () => {
             // Sign out from firebase
             await signOut(auth);
             console.log("User signed out");
-
-            // Show reward ad
-            await showRewardAd();
 
             // Clear local storage
             localStorage.clear();
@@ -104,16 +89,6 @@ const logOut = async () => {
   alert.present();
 };
 
-const showRewardAd = async () => {
-  try {
-    await AdMob.showRewardAd({
-      adId: "ca-app-pub-5370500978282229/1272283671", // Ganti dengan ID iklan reward yang valid
-    });
-    console.log("Reward Ad shown successfully");
-  } catch (error) {
-    console.error("Error showing Reward Ad:", error);
-  }
-};
 </script>
 
 <style scoped>
@@ -127,7 +102,7 @@ ion-tab-bar {
 
 ion-tab-bar ion-tab-button {
   font-size: 13px;
-  --color: #686d76;
+  --color: #555555;
   --color-selected: var(--ion-color-primary);
 }
 

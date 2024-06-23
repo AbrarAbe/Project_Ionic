@@ -10,7 +10,7 @@
         <div class="ion-header">
         <div class=" content-register" style="padding: 20px">
           <h1 style="margin: 0; margin-bottom: 5px">Selamat Datang!</h1>
-          <p style="margin: 0">Silahkan login terlebih dahulu</p>
+          <p style="margin: 0">Silahkan register terlebih dahulu</p>
           <div class="input-group">
             <div class="label">
               <h2>Email</h2>
@@ -64,6 +64,7 @@
                 <ion-select-option value="murid">Murid</ion-select-option>
                 <ion-select-option value="guru">Guru</ion-select-option>
               </ion-select>
+              <ion-ripple-effect mode="ios" />
             </div>
             <ion-button
             mode="ios"
@@ -151,7 +152,7 @@
         });
         loading.value = false;
         errored.value = false;
-        router.push({ name: role.value === "murid" ? "menuujian" : "menuinputujian" });
+        router.push({ name: role.value === "murid" ? "homepagemurid" : "homepageguru" });
       } catch (error) {
         console.log(error);
         loading.value = false;

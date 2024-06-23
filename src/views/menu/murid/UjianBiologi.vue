@@ -4,45 +4,31 @@
       <div class="main_content_div">
         <ion-header mode="ios">
           <ion-toolbar>
-            <ion-title>Menu Ujian</ion-title>
+            <ion-title>Biologi</ion-title>
             <ion-back-button slot="start" default-href="/" />
           </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true" :scrollEvents="true">
           <ion-content class="ion-padding">
             <!-- Soal Matematika -->
-            <h2>1. Apa hasil dari 15 + 10?</h2>
+            <h2>1. Apa fungsi fotosintesis dalam ekosistem?</h2>
             <ion-radio-group v-model="jawaban1">
               <ion-list>
                 <ion-item>
-                  <ion-label>20</ion-label>
+                  <ion-label>A. Menghasilkan oksigen</ion-label>
                   <ion-radio slot="start" value="20"></ion-radio>
                 </ion-item>
                 <ion-item>
-                  <ion-label>25</ion-label>
+                  <ion-label>B. Menghasilkan karbon dioksida</ion-label>
                   <ion-radio slot="start" value="25"></ion-radio>
                 </ion-item>
                 <ion-item>
-                  <ion-label>30</ion-label>
-                  <ion-radio slot="start" value="30"></ion-radio>
-                </ion-item>
-              </ion-list>
-            </ion-radio-group>
-
-            <h2>2. Apa hasil dari 50 - 15?</h2>
-            <ion-radio-group v-model="jawaban2">
-              <ion-list>
-                <ion-item>
-                  <ion-label>30</ion-label>
+                  <ion-label>C. Menghasilkan airD. Menghasilkan energi</ion-label>
                   <ion-radio slot="start" value="30"></ion-radio>
                 </ion-item>
                 <ion-item>
-                  <ion-label>35</ion-label>
-                  <ion-radio slot="start" value="35"></ion-radio>
-                </ion-item>
-                <ion-item>
-                  <ion-label>40</ion-label>
-                  <ion-radio slot="start" value="40"></ion-radio>
+                  <ion-label>D. Menghasilkan energi</ion-label>
+                  <ion-radio slot="start" value="30"></ion-radio>
                 </ion-item>
               </ion-list>
             </ion-radio-group>

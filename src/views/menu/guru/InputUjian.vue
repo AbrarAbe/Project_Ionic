@@ -30,10 +30,6 @@
             <ion-label>d.</ion-label>
             <ion-input v-model="namaSiswa" placeholder="Masukkan pilihan ganda"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label>e.</ion-label>
-            <ion-input v-model="namaSiswa" placeholder="Masukkan pilihan ganda"></ion-input>
-          </ion-item>
           <ion-button @click="tambahSiswa">Tambah Ujian</ion-button>
         </ion-content>
       </div>

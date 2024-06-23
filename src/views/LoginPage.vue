@@ -73,7 +73,7 @@
         </ion-button>
 
         <div class="label">
-            <center><h2>Sudah punya akun? Silahkan login</h2></center>
+            <center><h2>Sudah punya akun? Silahkan register</h2></center>
         </div>
         
         <ion-button
