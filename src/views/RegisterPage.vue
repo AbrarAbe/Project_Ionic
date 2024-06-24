@@ -3,8 +3,8 @@
       <ion-content class="register" scroll-y="true">
         <div class="header-register">
           <div class="logo ion-padding">
-            <H1 style="color:white">Aplikasi Toekang<br/><H6 style="color:white">Butuh tukang? Kami ada!</H6></H1>
-            <img src="../assets/img/LogoWE1.png" alt="" />
+            <H1 style="color:white">Aplikasi Ujian<br/><H6 style="color:white">Ujian dimana saja dan kapan saja.</H6></H1>
+            <!--<img src="../assets/img/LogoWE1.png" alt="" />-->
           </div>
         </div>
         <div class="ion-header">

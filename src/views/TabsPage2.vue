@@ -7,10 +7,10 @@
           <ion-icon :icon="menu"></ion-icon>
           <ion-label>Menu</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="profile" href="/murid/home/profile">
+        <!--<ion-tab-button tab="profile" href="/murid/home/profile">
           <ion-icon :icon="person"></ion-icon>
           <ion-label>Profile</ion-label>
-        </ion-tab-button>
+        </ion-tab-button>-->
         <ion-tab-button tab="settings" href="/murid/home/settings">
           <ion-icon :icon="settings"></ion-icon>
           <ion-label>Settings</ion-label>
@@ -38,7 +38,7 @@ import {
 import { 
   exit, 
   menu, 
-  person, 
+  //person, 
   settings, 
 } from "ionicons/icons";
 
